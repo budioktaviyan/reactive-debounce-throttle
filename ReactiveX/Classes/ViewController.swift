@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 
         button.rx
             .controlEvent(.touchUpInside)
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 guard let _ = self else { return }
 
