@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
 
@@ -16,6 +18,8 @@ class ViewController: UIViewController {
         return view
     }()
 
+    let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,5 +27,14 @@ class ViewController: UIViewController {
 
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
+        button.rx
+            .controlEvent(.touchUpInside)
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                guard let _ = self else { return }
+
+                // TODO: Invoke network call
+            }).disposed(by: disposeBag)
     }
 }
