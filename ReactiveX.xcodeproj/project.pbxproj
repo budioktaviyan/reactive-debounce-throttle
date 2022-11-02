@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F0BAAF32911996E00DC87FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BAAF22911996E00DC87FE /* ViewController.swift */; };
+		1F80AB622911F75E001FF774 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F80AB612911F75E001FF774 /* Model.swift */; };
 		1F8749822910BC02000A8F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8749812910BC02000A8F17 /* AppDelegate.swift */; };
 		1F8749842910BC02000A8F17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8749832910BC02000A8F17 /* SceneDelegate.swift */; };
 		1F87498B2910BC03000A8F17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F87498A2910BC03000A8F17 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		1F0BAAF22911996E00DC87FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F80AB612911F75E001FF774 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1F87497E2910BC02000A8F17 /* ReactiveX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8749812910BC02000A8F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8749832910BC02000A8F17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				1F8749812910BC02000A8F17 /* AppDelegate.swift */,
+				1F80AB612911F75E001FF774 /* Model.swift */,
 				1F8749832910BC02000A8F17 /* SceneDelegate.swift */,
 				1F0BAAF22911996E00DC87FE /* ViewController.swift */,
 			);
@@ -209,6 +212,7 @@
 				1F0BAAF32911996E00DC87FE /* ViewController.swift in Sources */,
 				1F8749822910BC02000A8F17 /* AppDelegate.swift in Sources */,
 				1F8749842910BC02000A8F17 /* SceneDelegate.swift in Sources */,
+				1F80AB622911F75E001FF774 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

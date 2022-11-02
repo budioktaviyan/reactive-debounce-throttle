@@ -1,6 +1,8 @@
 import UIKit
+import Alamofire
 import RxSwift
 import RxCocoa
+import RxAlamofire
 
 class ViewController: UIViewController {
 
@@ -30,11 +32,40 @@ class ViewController: UIViewController {
 
         button.rx
             .controlEvent(.touchUpInside)
-            .throttle(.seconds(1), scheduler: MainScheduler.instance)
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
-                guard let _ = self else { return }
-
-                // TODO: Invoke network call
+                guard let this = self else { return }
+                this.networkCall()
             }).disposed(by: disposeBag)
+    }
+}
+
+extension ViewController {
+
+    private func networkCall() {
+        let encoding = URLEncoding()
+
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+        RxAlamofire.data(
+            .get,
+            "https://api.themoviedb.org/3/movie/now_playing",
+            parameters: ["api_key" : "f920accbb779fcb3ab3bbec9a8b40bd0"],
+            encoding: encoding
+        )
+        .throttle(.seconds(1), scheduler: MainScheduler.instance)
+        .subscribe(onNext: { [weak self] response in
+            guard let _ = self else { return }
+
+            do {
+                let model = try decoder.decode(Model.self, from: response)
+                let results = model.results
+                let titles = results?.compactMap { data in data.title } ?? []
+                dump(titles)
+            } catch {
+                print(error)
+            }
+        }).disposed(by: disposeBag)
     }
 }
